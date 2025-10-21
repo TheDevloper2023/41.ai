@@ -16,4 +16,5 @@ This is a rewrite of 41ai-backend.
 # Any PRs or Forks are welcome.
 
 > If you are going to use the backend for your site, please credit this repo.
+> 
 > I won't merge anything that adds CSS to the frontend.

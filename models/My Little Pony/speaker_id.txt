@@ -1,8 +1,0 @@
-0|Apple bloom
-1|Applejack
-2|Fluttershy
-3|Pinkie Pie
-4|Rainbow Dash
-5|Rarity
-6|Spike
-7|Twilight Sparkle

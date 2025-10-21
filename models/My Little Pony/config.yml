@@ -1,8 +1,0 @@
-creator: ".hecko"
-mos: "N/A"
-learning_rate: 1e-4
-epochs: 31
-dataset_length: "3-4h (est.)"
-license: "Unlicense"
-architecture: "Tacotron Pipeline"
-vocoder: "hifi-gan"

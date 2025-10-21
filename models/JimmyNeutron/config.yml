@@ -1,0 +1,8 @@
+creator: "EvanTheToonGuy40"
+mos: "N/A"
+learning_rate: 1e-4
+epochs: 200
+dataset_length: "N/A"
+license: "No license"
+architecture: "Tacotron Pipeline"
+vocoder: "hifi-gan"

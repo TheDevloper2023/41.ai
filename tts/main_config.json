@@ -1,0 +1,112 @@
+{
+  "models": {
+    "Big Bird (Sesame Street)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Big Bird (Sesame Street)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Big Bird (Sesame Street)/speaker_id.txt"
+    },
+    "ETnBloonsTD6": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/ETnBloonsTD6/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/ETnBloonsTD6/speaker_id.txt"
+    },
+    "Guy Hamdon (SheZow) (Australian airings)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Guy Hamdon (SheZow) (Australian airings)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Guy Hamdon (SheZow) (Australian airings)/speaker_id.txt"
+    },
+    "JimmyNeutron": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/JimmyNeutron/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/JimmyNeutron/speaker_id.txt"
+    },
+    "Johnny Test": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Johnny Test/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Johnny Test/speaker_id.txt"
+    },
+    "Mr. “Ant” Tenna": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Mr. “Ant” Tenna/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Mr. “Ant” Tenna/speaker_id.txt"
+    },
+    "My Little Pony": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/My Little Pony/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/My Little Pony/speaker_id.txt"
+    },
+    "Panty And Stocking": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Panty And Stocking/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Panty And Stocking/speaker_id.txt"
+    },
+    "Pauline (Donkey Kong Bananza)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Pauline (Donkey Kong Bananza)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Pauline (Donkey Kong Bananza)/speaker_id.txt"
+    },
+    "Pinky and the Brain": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Pinky and the Brain/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Pinky and the Brain/speaker_id.txt"
+    },
+    "SheZow": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/speaker_id.txt"
+    },
+    "SpongeBob": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/SpongeBob/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/SpongeBob/speaker_id.txt"
+    },
+    "SpongeBob (Single Speaker TT2 model)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/SpongeBob (Single Speaker TT2 model)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/SpongeBob (Single Speaker TT2 model)/speaker_id.txt"
+    },
+    "Steve (A minecraft Movie)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Steve (A minecraft Movie)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Steve (A minecraft Movie)/speaker_id.txt"
+    },
+    "Talking Flower": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Talking Flower/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Talking Flower/speaker_id.txt"
+    },
+    "Team Fortress 2": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Team Fortress 2/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Team Fortress 2/speaker_id.txt"
+    },
+    "Tell and Talk": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Tell and Talk/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Tell and Talk/speaker_id.txt"
+    },
+    "Wario (WarioWare Gold)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Wario (WarioWare Gold)/taco.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Wario (WarioWare Gold)/speaker_id.txt"
+    }
+  }
+}

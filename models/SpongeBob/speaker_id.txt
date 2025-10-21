@@ -1,0 +1,8 @@
+0|French Narrator
+1|Mr. Krabs
+2|Mrs. Puff
+3|Patrick
+4|Plankton
+5|Sandy
+6|SpongeBob
+7|Squidward

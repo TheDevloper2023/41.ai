@@ -6,14 +6,11 @@ This is a rewrite of 41ai-backend.
 # Each file
 
 |file | description|
----|---|
-/tts | Every tts synthesis method.
----|---|
-api.py | Actual api / backend.
----|---|
-worker.py | what it does per request.
----|---|
-tts/main_config.json |  Contains configuration for the API for now; it currently acts as a model dictionary.
+|---|---|
+|/tts | Every tts synthesis method.|
+|api.py | Actual api / backend.|
+|worker.py | what it does per request. |
+|tts/main_config.json |  Contains configuration for the API for now; it currently acts as a model dictionary.|
 
 
 # Any PRs or Forks are welcome.

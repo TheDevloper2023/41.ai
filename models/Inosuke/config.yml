@@ -1,8 +1,0 @@
-creator: "Anon"
-mos: 4.1
-learning_rate: ???
-epochs: ???
-dataset_length: "2h (est.)"
-license: "No license"
-architecture: "RVC"
-vocoder: "hifi-gan"

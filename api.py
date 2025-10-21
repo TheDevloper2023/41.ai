@@ -1,25 +1,69 @@
-# api.py
 import uuid, os
-from fastapi import FastAPI
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
 from worker import synthesize_tts
-
+from tts.registry import list_models, list_speakers
+from typing import Optional
+import glob
 app = FastAPI()
 
+templates = Jinja2Templates(directory="templates")
+
 @app.post("/tts")
-def tts_request(
-    text: str,
-    model_name: str = "Tacotron2_English",
-    speaker_id: int = 0,
-    emotion: str = None
+async def tts_request(
+    request: Request,
+    text: str = Form(...),
+    model_name: str = Form("Tacotron2_English"),
+    speaker_id: int = Form(0),
+    emotion: Optional[str] = Form(None),
+    maxdecodesteps: int = Form(3000),
+    gate_threshold: float = Form(0.05),
+    speaking_rate: float = Form(1.2),
+    superress: float = Form(4.0),
+    denoise: int = Form(50),
+    skip_sr: bool = Form(False),
+    arpaconv: bool = Form(True),
 ):
     job_id = str(uuid.uuid4())
-    synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion)
-    return {"job_id": job_id, "model": model_name}
+
+    
+    
+    extra_settings = {
+        "maxdecodesteps": maxdecodesteps,
+        "gate_threshold": gate_threshold,
+        "speaking_rate": speaking_rate,
+        "superress": superress,
+        "denoise": denoise,
+        "skip_sr": skip_sr,
+        "arpaconv": arpaconv
+    }
+
+
+    synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion, **extra_settings)
+    return {"job_id": job_id, "model": model_name, "extra_settings": extra_settings}
 
 @app.get("/result/{job_id}")
 def get_result(job_id: str):
-    filepath = f"results/{job_id}.wav"
-    if os.path.exists(filepath):
-        return FileResponse(filepath, media_type="audio/wav")
+    output_file = f"generated_audio/{job_id}_gen.wav"
+    if os.path.exists(output_file):
+        return FileResponse(output_file, media_type="audio/wav")
     return JSONResponse({"status": "pending"})
+
+
+
+@app.get("/", response_class=HTMLResponse)
+def main(request: Request):
+    models = list_models()
+    return templates.TemplateResponse("index.html", {"request": request, "models": models})
+
+@app.get("/speakers/{model_name}")
+async def get_speakers(model_name: str):
+    """Return available speakers for a given model."""
+    speakers = list_speakers(model_name)
+    return {"model": model_name, "speakers": speakers}
+
+
+@app.get("/favicon.ico")
+def favicon():
+    return FileResponse("/templates/favicon.ico")

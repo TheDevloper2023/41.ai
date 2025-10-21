@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>41.ai</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <h1>41.ai v2 beta 1</h1>
+    <p>Keep in mind that 41.ai's webui is unfinished! it works, but it is ugly.</p>
+    <form id="ttsForm" method="post" action="/tts">
+        <label>Model:</label>
+        <select name="model_name" id="model">
+            {% for name, info in models.items() %}
+                <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label>Speaker:</label>
+        <select name="speaker_id" id="speaker">
+             <option>-- Select a model first --</option>
+        </select>
+
+        <br><br>
+
+        <textarea name="text" cols="50" rows="5" placeholder="Enter text to synthesize..."></textarea>
+        <br><br>
+                <details>
+    <summary>Advanced Settings</summary>
+    <div style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <p>Some other stuff you can configure:</p>
+        <label>Max Decode Steps: <input type="number" name="maxdecodesteps" value="3000"></label><br>
+        <label>Gate Threshold: <input type="number" name="gate_threshold" value="0.05" step="0.01"></label><br>
+        <label>Speaking Rate: <input type="number" name="speaking_rate" value="1.2" step="0.1"></label><br>
+        <label>Super Resolution: <input type="number" name="superress" value="4.0" step="0.1"></label><br>
+        <label>Denoise Strength: <input type="number" name="denoise" value="35"></label><br>
+        <label>Skip Super Resolution: <input type="checkbox" name="skip_sr"></label><br>
+        <label>Use ARPA Conversion: <input type="checkbox" name="arpaconv" checked></label>
+    </div>
+</details>
+<br>
+        <button type="submit">Generate</button>
+
+
+    </form>
+
+    <p id="status"></p>
+    <audio id="audioPlayer" controls hidden></audio>
+
+    <script>
+        const form = document.getElementById("ttsForm");
+        const status = document.getElementById("status");
+        const audioPlayer = document.getElementById("audioPlayer");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            status.textContent = "Processing...";
+            audioPlayer.hidden = true;
+
+            const formData = new FormData(form);
+            const res = await fetch("/tts", {
+                method: "POST",
+                body: formData
+            });
+            const data = await res.json();
+
+            const jobId = data.job_id;
+            checkResult(jobId);
+        });
+
+        async function checkResult(jobId) {
+            const interval = setInterval(async () => {
+                const res = await fetch(`/result/${jobId}`);
+                if (res.headers.get("content-type").includes("audio/wav")) {
+                    clearInterval(interval);
+                    const blob = await res.blob();
+                    const url = URL.createObjectURL(blob);
+                    audioPlayer.src = url;
+                    audioPlayer.hidden = false;
+                    status.textContent = "Done!";
+                } else {
+                    const data = await res.json();
+                    status.textContent = "Status: " + data.status;
+                }
+            }, 2000);
+        }
+
+        async function load_speakers() {
+            const modelName = modelSelect.value;
+        speakerSelect.innerHTML = "<option>Loading...</option>";
+
+        const res = await fetch(`/speakers/${modelName}`);
+        if (!res.ok) {
+            speakerSelect.innerHTML = "<option>No speakers found</option>";
+            return;
+        }
+
+        const data = await res.json();
+        speakerSelect.innerHTML = "";
+
+        data.speakers.forEach((spk, idx) => {
+            const split = spk.split("|")
+            const opt = document.createElement("option");
+            opt.value = idx;
+            opt.textContent = split[1];
+            speakerSelect.appendChild(opt);
+        });
+        }
+
+        const modelSelect = document.getElementById("model");
+        const speakerSelect = document.getElementById("speaker");
+        modelSelect.addEventListener("change", async () => {
+        load_speakers()
+});
+
+load_speakers()
+    </script>
+</body>
+</html>

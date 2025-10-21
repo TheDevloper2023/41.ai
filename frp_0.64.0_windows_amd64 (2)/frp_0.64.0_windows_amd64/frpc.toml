@@ -1,0 +1,14 @@
+serverAddr = "45.61.187.3"
+serverPort = 7192
+
+auth.method = "token"
+auth.tokenSource.type = "file"
+auth.tokenSource.file.path = "auth.token"
+
+[[proxies]]
+name = "web"
+type = "http"
+localPort = 5000
+customDomains = ["41ai.mooo.com"]
+
+

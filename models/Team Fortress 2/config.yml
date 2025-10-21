@@ -1,0 +1,8 @@
+creator: "DodoTheGamer"
+mos: "N/A"
+learning_rate: 1e-4
+epochs: 52
+dataset_length: "1h"
+license: "Unlicense"
+architecture: "Tacotron Pipeline"
+vocoder: "hifi-gan"

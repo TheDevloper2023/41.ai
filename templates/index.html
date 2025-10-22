@@ -25,7 +25,12 @@
 
         <br><br>
 
-        <textarea name="text" cols="50" rows="5" placeholder="Enter text to synthesize..."></textarea>
+        <textarea name="text" cols="50" rows="5" placeholder="Enter text to synthesize..." id="text"></textarea> <br> <p id="count">(0)</p>
+        <label>Reference Audio (for RVC, GPT-SoVits, Mellotron, etc.):</label>
+        <input type="file" name="ref_audio" accept="audio/*"><br>
+        <button type="submit">Generate</button> 
+        
+        <button id="random" type="button">random</button>
         <br><br>
                 <details>
     <summary>Advanced Settings</summary>
@@ -41,18 +46,21 @@
     </div>
 </details>
 <br>
-        <button type="submit">Generate</button>
+       
+        <a href="" id="download">Download</a>
 
 
     </form>
 
     <p id="status"></p>
     <audio id="audioPlayer" controls hidden></audio>
+</body>
 
-    <script>
+<script>
         const form = document.getElementById("ttsForm");
         const status = document.getElementById("status");
         const audioPlayer = document.getElementById("audioPlayer");
+        const download_link = document.getElementById("download")
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -78,6 +86,8 @@
                     const blob = await res.blob();
                     const url = URL.createObjectURL(blob);
                     audioPlayer.src = url;
+                    download_link.href = url;
+                    download_link.download = `tts_${jobId}_gen.wav`;
                     audioPlayer.hidden = false;
                     status.textContent = "Done!";
                 } else {
@@ -116,6 +126,62 @@
 });
 
 load_speakers()
+
+
+const textbox = document.getElementById("text");
+        function updateCount() {
+            const length = textbox.value.length;
+            document.getElementById("count").textContent = `(${length})`;
+        }
+textbox.addEventListener("input", updateCount);
+
+
+const randomBtn = document.getElementById("random")
+randomBtn.addEventListener("click", random_prompt_gen);
+function random_prompt_gen() {
+            const prompts = [
+                `Press any key to continue.`,
+                `What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.`,
+                `Welcome to Stack Overflow! Questions seeking debugging help must include the desired behavior, a specific problem or error and the shortest code necessary to reproduce it in the question itself. Questions without a clear problem statement are not useful.`,
+                `Some computer users run a modified version of the Emacs system every day, without realizing it. Through a peculiar turn of events, the version of Emacs which is widely used today is often called Linux, and many of its users are not aware that it is basically the Emacs system, developed by the GNU Project.`,
+                `THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.`,
+                `The very essence of a mare pony, similar to their soul, but something so profound that transcends such a mundane term and thus necessitates its own word. "I love mares, especially their snowpitys."`,
+                `Green is my filly.`,
+                `Let it be known that the code shall be thy companion, not thy master, and all who wield it shall be free from the shackles of proprietary software.`,
+                `I’ll have two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda.`,
+                `I thank you for your participation and hope we can count on you for another round of tests.`,
+                `Nobody expects the Equestrian Inquisition!`,
+                `Yeah, I know. She was so surprised.`,
+                `Oh, for sure! I mean, it wasn't very big, just a little bug, but Flower went crazy!`,
+                `It's time for Cake at Stake!`,
+                `The Fitness Gram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.`,
+                `I've come to make an announcement. Shadow the Hedgehog's a bitchass motherfucker.`,
+                `None of these words are in the bible.`,
+                `You claim to hate A I, but when it's an A I cover of your favorite song sung by your favorite character you love it?`,
+                `Hi, I'm Chris Hansen from Dateline N B C. Why don't you take a seat over there?`,
+                `You are a vigilante. You don't give two shits about the victims or what you're doing.`,
+                `Get off the internet, get therapy, and grow and change as a person.`,
+                `Cock and ball torture. From Wikipedia, the free encyclopedia at en wikipedia dot org.`,
+                `Wikipedia is a free online encyclopedia written and maintained by a community of volunteers, known as Wikipedians, through open collaboration and the wiki software MediaWiki.`,
+                `Slapstick is a concept that occurs in most classic cartoons. Animating it isn't easy though, it's more complicated than setting up a mouse trap.`,
+                `Smoke weed every day!`,
+                `That coffee I gave you earlier had fluorescent calcium in it so I can track the neuronal activity in your brain.`,
+                `You think you're so goddamn funny for your Six Seven and Mustard jokes, huh? Well then, this calls for the big guns. SEVENTY SIX KETCHUPS!`,
+                `I made a severe and continuous lapse in my judgement, and I don’t expect to be forgiven. I’m simply here to apologise.`,
+                `Crush my cock with a rock I must. Maximum pain I must endure.`,
+                `The human whose name is written in this note shall die.`,
+                `User is suspected to be part of an online terrorist organization. Please report any suspicious activity to Discord staff.`,
+                `Seriously? A I voices? Ugh, what happened to sentence mixing?`,
+                `They're telling me I oughta stop making these pre recorded messages! That gave me an idea! Make more pre-recorded messages! I pay the bills here! I can talk about the control group all damn day.`,
+                `According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground.`,
+                `First shalt thou take out the Holy Pin. Then shalt thou count to three. no more, no less. Lobbest thou thy Holy Hand Grenade of Antioch towards thy foe, who, being naughty in My sight. shall snuff it.`,
+            ];
+            const random = Math.floor(Math.random() * prompts.length);
+            document.getElementById("text").value = prompts[random];
+
+            const event = new Event('input');
+            textbox.dispatchEvent(event);
+        }
+
     </script>
-</body>
 </html>

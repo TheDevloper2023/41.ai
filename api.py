@@ -1,22 +1,21 @@
 import uuid, os
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request, Form, File, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from worker import synthesize_tts
 from tts.registry import list_models, list_speakers
 from typing import Optional
-import glob
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 
 @app.post("/tts")
 async def tts_request(
-    request: Request,
     text: str = Form(...),
     model_name: str = Form("Tacotron2_English"),
     speaker_id: int = Form(0),
     emotion: Optional[str] = Form(None),
+    ref_audio: Optional[UploadFile] = File(None),
     maxdecodesteps: int = Form(3000),
     gate_threshold: float = Form(0.05),
     speaking_rate: float = Form(1.2),
@@ -26,6 +25,14 @@ async def tts_request(
     arpaconv: bool = Form(True),
 ):
     job_id = str(uuid.uuid4())
+
+    ref_audio_path = None
+    if ref_audio:
+        os.makedirs("uploaded_refs", exist_ok=True)
+        ref_audio_path = os.path.join("uploaded_refs", f"{job_id}_{ref_audio.filename}")
+        with open(ref_audio_path, "wb") as f:
+            f.write(await ref_audio.read())
+
 
     
     
@@ -40,8 +47,8 @@ async def tts_request(
     }
 
 
-    synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion, **extra_settings)
-    return {"job_id": job_id, "model": model_name, "extra_settings": extra_settings}
+    synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion, **extra_settings, ref_audio=ref_audio_path)
+    return {"job_id": job_id, "model": model_name, "extra_settings": extra_settings,  "ref_audio": ref_audio_path,}
 
 @app.get("/result/{job_id}")
 def get_result(job_id: str):

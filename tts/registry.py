@@ -1,11 +1,13 @@
 import json
 from .tacotron import Tacotron2HIFI
 from .piper import Piper
+from .rvc import RVC
 import os
 
 MODEL_CLASSES = {
     "Tacotron2": Tacotron2HIFI,
     "VITS": Piper,
+    "RVC": RVC,
 }
 
 CONFIG_PATH = r"C:\Users\L\Desktop\41.ai-rewrite\tts\main_config.json"
@@ -26,7 +28,7 @@ def get_model(model_name: str, extra_settings: dict):
         arch = cfg["Architecture"]
         cls = MODEL_CLASSES[arch]
         model = cls()
-        if arch == "VITS":
+        if arch == "VITS" or arch=="RVC":
             model.load(cfg["Checkpoint"], **extra_settings) 
         else:
             model.load(cfg["Checkpoint"], cfg["Vocoder"], **extra_settings) 

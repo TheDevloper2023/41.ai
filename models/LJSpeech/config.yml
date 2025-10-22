@@ -1,0 +1,8 @@
+creator: "???"
+mos: "N/A"
+learning_rate: 1e-4
+epochs: ???
+dataset_length: 24h
+license: "No License"
+architecture: "Piper"
+vocoder: "hifi-gan"

@@ -5,7 +5,7 @@ import os
 app = Celery("tts_worker", broker="redis://localhost:6379/0")
 
 @app.task
-def synthesize_tts(job_id, text, model_name, speaker_id, emotion=None, **kwargs):
+def synthesize_tts(job_id, text, model_name, speaker_id, emotion=None, ref_audio=None,**kwargs):
     # kwargs contains all the extra_settings
     extra_settings = kwargs
     
@@ -17,11 +17,6 @@ def synthesize_tts(job_id, text, model_name, speaker_id, emotion=None, **kwargs)
     
     model = get_model(model_name=model_name, extra_settings=extra_settings)
     output_file = os.path.join("generated_audio", f"{job_id}_gen.wav")
-    # Call synthesize correctly - emotion should be passed as torchmoji_text or in extra_settings
-    # Option 1: If you want to use emotion as torchmoji_text
-    audio_path = model.synthesize(text, speaker_id, torchmoji_text=emotion, output_file=output_file ,**extra_settings)
-    
-    # Option 2: If you want to keep emotion separate from torchmoji_text
-    # audio_path = model.synthesize(text, speaker_id, **extra_settings)
+    audio_path = model.synthesize(text, speaker_id, torchmoji_text=emotion, output_file=output_file ,**extra_settings, ref_audio=ref_audio)
     
     return audio_path

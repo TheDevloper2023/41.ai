@@ -107,6 +107,10 @@
       "Architecture": "Tacotron2",
       "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/SheZow/vocoder",
       "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Wario (WarioWare Gold)/speaker_id.txt"
+    },
+    "Inosuke": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Inosuke/Inosuke.pth",
+      "Architecture": "RVC"
     }
   }
 }

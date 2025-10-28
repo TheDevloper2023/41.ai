@@ -28,7 +28,7 @@ def get_model(model_name: str, extra_settings: dict):
         arch = cfg["Architecture"]
         cls = MODEL_CLASSES[arch]
         model = cls()
-        if arch == "VITS" or arch=="RVC":
+        if arch == "VITS" or arch == "RVC":
             model.load(cfg["Checkpoint"], **extra_settings) 
         else:
             model.load(cfg["Checkpoint"], cfg["Vocoder"], **extra_settings) 

@@ -18,5 +18,4 @@ def synthesize_tts(job_id, text, model_name, speaker_id, emotion=None, ref_audio
     model = get_model(model_name=model_name, extra_settings=extra_settings)
     output_file = os.path.join("generated_audio", f"{job_id}_gen.wav")
     audio_path = model.synthesize(text, speaker_id, torchmoji_text=emotion, output_file=output_file ,**extra_settings, ref_audio=ref_audio)
-    
     return audio_path

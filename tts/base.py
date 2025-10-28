@@ -16,7 +16,8 @@ class TTSModel(ABC):
         pass
 
     @abstractmethod
-    def synthesize(self, text: str, speaker: Optional[str] = None, ref_audio: Optional[str] = None, emotion: Optional[str] = None, use_vocoder: bool = True) -> bytes:
+    def synthesize(self, text: str, speaker: Optional[str] = None, 
+                   emotion: Optional[str] = None, use_vocoder: bool = True) -> bytes:
         """
         Convert text to raw audio bytes (e.g. WAV data).
         

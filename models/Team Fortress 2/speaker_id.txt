@@ -1,9 +1,0 @@
-0|Demoman
-1|Engineer
-2|Heavy
-3|Medic
-4|Merasmus
-6|Pauling
-7|Scout
-8|Sniper
-9|Spy

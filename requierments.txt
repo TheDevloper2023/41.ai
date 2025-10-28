@@ -1,16 +1,6 @@
 torch==2.8.0
 torchaudio==2.8.0
 numpy==1.26.4
-<<<<<<< HEAD
-scipy
-
-phonemizer
-inflect
-Unidecode
-librosa==0.9.1
-soundfile
-piper-tts
-=======
 scipy==1.16.2
 uberduck-ml-dev==0.0.1
 phonemizer==3.3.0
@@ -19,7 +9,6 @@ Unidecode==1.4.0
 librosa==0.9.1
 soundfile==0.13.1
 piper-tts==1.3.0
->>>>>>> 47c46fdf535d91965d33772a3fbc2dbd7aa34bd4
 tqdm==4.67.1
 scikit-learn==1.7.2
 fastapi==0.118.0
@@ -30,4 +19,3 @@ redis==6.4.0
 python-dotenv==1.1.1
 pydantic==2.11.9
 requests==2.32.5
-

@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>41.ai</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
     <h1>41.ai v2 beta 1</h1>
-    <p>Keep in mind that 41.ai's webui is unfinished! it works, but it is ugly.</p>
-    <form id="ttsForm" method="post" action="/tts">
+    <p>Worlds best TTS / STS site there is. (I need a Ko-Fi page so that I can buy a Tesla T4 server that costs 600$)</p>
+    <form id="ttsForm" method="post" action="/tts" enctype="multipart/form-data">
         <label>Model:</label>
         <select name="model_name" id="model">
             {% for name, info in models.items() %}
@@ -43,6 +42,18 @@
         <label>Denoise Strength: <input type="number" name="denoise" value="35"></label><br>
         <label>Skip Super Resolution: <input type="checkbox" name="skip_sr"></label><br>
         <label>Use ARPA Conversion: <input type="checkbox" name="arpaconv" checked></label>
+        <hr>
+        <p>RVC Specific Settings:</p>
+        <label>Pitch Shift: <input type="number" name="pitch_shift" value="0"></label><br>
+        <label>Index Rate: <input type="number" name="index_rate" value="1.0" step="0.1"></label><br>
+        <label>Filter Radius: <input type="number" name="filter_radius" value="3"></label><br>
+        <label>F0 Extraction Method: 
+            <select name="extraction_method">
+                <option value="harvest">Harvest</option>
+                <option value="crepe">Crepe</option>
+                <option value="rmvpe">RMVPE</option>
+                <option value="pm">PM</option>
+            </select>
     </div>
 </details>
 <br>
@@ -81,6 +92,12 @@
         async function checkResult(jobId) {
             const interval = setInterval(async () => {
                 const res = await fetch(`/result/${jobId}`);
+                 if (!res.ok) { //Should've added this a long time ago
+                    const text = await res.text();
+                    console.error("Server error:", text);
+                    status.textContent = `Nice job Dodo! Error: ${res.status}`;
+                    return;
+                }
                 if (res.headers.get("content-type").includes("audio/wav")) {
                     clearInterval(interval);
                     const blob = await res.blob();

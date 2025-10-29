@@ -1,9 +1,7 @@
 from rvc_python.infer import RVCInference
-from tts.utils import DEVICE
+from .utils import DEVICE
 from .base import TTSModel
 import os
-
-import torch
 from torch.serialization import add_safe_globals
 from fairseq.data.dictionary import Dictionary
 
@@ -32,14 +30,18 @@ class RVC(TTSModel):
             )
 
         # Optional: pull extra_settings if provided
-        pitch_shift = 0
-        index_rate = 1.0
-        filter_radius = 3
+        pitch_shift = extra_settings.get("pitch_shift", 0)
+        index_rate = extra_settings.get("index_rate", 1.0)
+        filter_radius = extra_settings.get("filter_radius", 3)
+        protect = extra_settings.get("protect", 0.33)
+        extraction_method = extra_settings.get("extraction_method", 'harvest') # Choose between 'harvest', 'crepe', 'rmvpe', 'pm' (Would've wished if I addded more extraction methods later)
 
-        print(f"Running RVC inference on {ref_audio} → {output_file}")
-        print(f"Pitch shift: {pitch_shift}, Index rate: {index_rate}")
-
-        # Perform inference
+        #Add configuration from extra_settings if available
+        self.model.f0method = extraction_method
+        self.model.f0up_key = pitch_shift
+        self.model.index_rate = index_rate
+        self.model.filter_radius = filter_radius
+        self.model.protect = protect #Forgot what this does
         self.model.infer_file(ref_audio, output_file)
 
         return output_file

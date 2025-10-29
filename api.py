@@ -28,6 +28,14 @@ async def tts_request(
     denoise: int = Form(50),
     skip_sr: bool = Form(False),
     arpaconv: bool = Form(True),
+
+    ##### RVC #####
+
+    pitch_shift: int = Form(0),
+    index_rate: float = Form(1.0),
+    filter_radius: int = Form(3),
+    extraction_method: str = Form("harvest"),
+    protect: float = Form(.33)
 ):
     job_id = str(uuid.uuid4())
 
@@ -46,6 +54,13 @@ async def tts_request(
         "denoise": denoise,
         "skip_sr": skip_sr,
         "arpaconv": arpaconv,
+
+        ### RVC ###
+        "pitch_shift": pitch_shift,
+        "index_rate": index_rate,
+        "filter_radius": filter_radius,
+        "extraction_method": extraction_method,
+        "protect": protect,
     }
 
     # enqueue TTS job
@@ -78,8 +93,3 @@ async def get_speakers(model_name: str):
     """Return available speakers for a given model."""
     speakers = list_speakers(model_name)
     return {"model": model_name, "speakers": speakers}
-
-
-@app.get("/favicon.ico")
-def favicon():
-    return FileResponse("/templates/favicon.ico")

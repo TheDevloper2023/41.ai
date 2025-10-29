@@ -111,6 +111,33 @@
     "Inosuke": {
       "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Inosuke/Inosuke.pth",
       "Architecture": "RVC"
+    },
+    "Beavis And Butt": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/BeavisAndButt/BeavisAndButt.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/UniversalHifigan/g_02500000",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/BeavisAndButt/speaker_id.txt"
+    },
+    "Ranma Season 1": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Ranma s1/Ranma2024Multispeaker_140.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/UniversalHifigan/g_02500000",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Ranma s1/speaker_id.txt"
+    },
+    "Ruby Gloom": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Ruby Gloom/RubyGloomMultispeakerModel_120_finalized.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/UniversalHifigan/g_02500000",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Ruby Gloom/speaker_id.txt"
+    },
+
+    "Whittany and Brittany Biskit (Littlest Pet Shop 2012)": {
+      "Checkpoint": "C:/Users/L/Desktop/41.ai-rewrite/models/Whittany and Brittany Biskit (Littlest Pet Shop 2012)/biskit-twins_140_finalized.pt",
+      "Architecture": "Tacotron2",
+      "Vocoder": "C:/Users/L/Desktop/41.ai-rewrite/models/UniversalHifigan/g_02500000",
+      "SpeakerIDS": "C:/Users/L/Desktop/41.ai-rewrite/models/Whittany and Brittany Biskit (Littlest Pet Shop 2012)/speaker_id.txt"
     }
+
+    
   }
 }

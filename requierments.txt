@@ -1,21 +1,29 @@
-torch==2.8.0
-torchaudio==2.8.0
+# Core TTS/ML deps (modern, compatible with PyTorch 2.4–2.10 era for stability on HF)
+torch==2.4.1
+torchaudio==2.4.1
 numpy==1.26.4
-scipy==1.16.2
-uberduck-ml-dev==0.0.1
+scipy==1.17.0                 # Latest as of Jan 2026
+librosa==0.10.2               # Bump from 0.9.1 for better compatibility (0.9.1 is very old)
+soundfile==0.13.1
+piper-tts==1.3.0              # Keep if you're using Piper fallback
+
+# Uberduck repo (pinned to last major commit for reproducibility)
+git+https://github.com/uberduck-ai/uberduck-ml-dev.git@377937580f78ea9964c20dec22904a913514c30d
+
+# Text/phonemization
 phonemizer==3.3.0
 inflect==7.5.0
 Unidecode==1.4.0
-librosa==0.9.1
-soundfile==0.13.1
-piper-tts==1.3.0
 tqdm==4.67.1
-scikit-learn==1.7.2
-fastapi==0.118.0
-uvicorn==0.37.0
-python-multipart==0.0.20
-celery==5.5.3
-redis==6.4.0
-python-dotenv==1.1.1
-pydantic==2.11.9
-requests==2.32.5
+
+# ML utils
+scikit-learn==1.8.0           # Latest as of Dec 2025
+
+# API/server (modern stables)
+fastapi==0.115.0              # Latest stable range in late 2025/early 2026
+uvicorn==0.30.6               # Reliable; avoid unverified high versions
+python-multipart==0.0.20      # For file uploads
+
+# Optional helpers if errors appear (e.g. model loading/debug)
+einops>=0.8.0
+matplotlib>=3.9.0             # Uncomment if needed for plots/debug

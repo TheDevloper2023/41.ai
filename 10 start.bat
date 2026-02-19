@@ -14,7 +14,7 @@ celery -A worker worker --loglevel=info --pool=threads
 
 REM --- Start FastAPI server ---
 echo [2/2] Starting FastAPI (port 5000)...
-start "FastAPI API" cmd /k uvicorn api:app --reload --port 5000
+start "FastAPI API" cmd /k uvicorn api:app --reload --port 7860
 
 REM --- Open in browser ---
 timeout /t 3 >nul

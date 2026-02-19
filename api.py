@@ -1,20 +1,31 @@
 import uuid
 import os
 from typing import Optional
-
+import tempfile
 from fastapi import FastAPI, Request, Form, File, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
-
+from fastapi import BackgroundTasks
 from worker import synthesize_tts
 from tts.registry import list_models, list_speakers
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # tighten to your frontend domain later
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 @app.post("/tts")
 async def tts_request(
+    background_tasks: BackgroundTasks,
     request: Request,
     text: str = Form(...),
     model_name: str = Form("Tacotron2_English"),
@@ -64,7 +75,8 @@ async def tts_request(
     }
 
     # enqueue TTS job
-    synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion, **extra_settings, ref_audio=ref_audio_path)
+    #synthesize_tts.delay(job_id, text, model_name, speaker_id, emotion, **extra_settings, ref_audio=ref_audio_path)
+    background_tasks.add_task(synthesize_tts, job_id, text, model_name, speaker_id, emotion, **extra_settings, ref_audio=ref_audio_path)
 
     return {
         "job_id": job_id,
@@ -76,7 +88,7 @@ async def tts_request(
 
 @app.get("/result/{job_id}")
 def get_result(job_id: str):
-    output_file = f"generated_audio/{job_id}_gen.wav"
+    output_file = f"{tempfile.gettempdir()}/{job_id}_gen.wav"
     if os.path.exists(output_file):
         return FileResponse(output_file, media_type="audio/wav")
     return JSONResponse({"status": "pending"})

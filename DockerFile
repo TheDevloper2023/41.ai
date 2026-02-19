@@ -1,0 +1,33 @@
+# Use slim Python base (smaller, faster builds) – upgrade to pytorch if you need CUDA later
+FROM python:3.11-slim
+
+# Install system dependencies (ffmpeg is critical for audio processing in TTS/RVC)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg libsndfile1 git build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user (HF best practice)
+RUN useradd -m -u 1000 user
+USER user
+ENV HOME=/home/user \
+    PATH=/home/user/.local/bin:$PATH
+
+WORKDIR $HOME/app
+
+# Copy and install dependencies first (caching layer)
+COPY --chown=user:user requirements.txt* ./
+RUN pip install --no-cache-dir --upgrade pip && \
+    if [ -f "requierments.txt" ]; then pip install -r requierments.txt; fi && \
+    if [ -f "req.txt" ]; then pip install -r req.txt; fi
+
+# Copy the rest of your application
+COPY --chown=user:user . .
+
+# Create runtime directories (they'll be ephemeral unless using HF persistent storage)
+RUN mkdir -p generated_audio uploaded_refs
+
+# Expose the port Hugging Face expects (7860)
+EXPOSE 7860
+
+# Run FastAPI with uvicorn – ${PORT} is auto-set by HF, fallback to 7860
+CMD ["sh", "-c", "uvicorn api:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1"]

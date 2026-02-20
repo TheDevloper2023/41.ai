@@ -124,7 +124,7 @@ class Tacotron2HIFI(TTSModel):
             )
 
         self.ttm.inference = custom_inference
-
+        vocoder_path = "g_02500000" #Patch for HF for now
         # Load Hifi-GAN vocoder
         self.mtw, self.h, self.denoiser = load_hifigan(vocoder_path, os.path.join(os.path.dirname(vocoder_path), "hifi-config.json"))
         # Load super-resolution Hifi-GAN

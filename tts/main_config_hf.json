@@ -1,0 +1,282 @@
+{
+  "Big Bird (Sesame Street)": {
+    "checkpoint": "big_bird_sesame_street.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"PepperAnnFanatic1998\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 155\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Big Bird": 0
+    }
+  },
+  "ETnBloonsTD6": {
+    "checkpoint": "etnbloonstd6.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"KenjoPlays\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 50\ndataset_length: \"N/A\"\nlicense: \"No License\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Etn": 0
+    }
+  },
+  "Guy Hamdon (SheZow) (Australian airings)": {
+    "checkpoint": "guy_hamdon_shezow_australian_airings.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 150\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Regular": 0,
+      "Falsetto": 1
+    }
+  },
+  "JimmyNeutron": {
+    "checkpoint": "jimmyneutron.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"EvanTheToonGuy40\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 200\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Jimmy": 0
+    }
+  },
+  "Johnny Test": {
+    "checkpoint": "johnny_test.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"EvanTheToonGuy40\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 200\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Johnny": 0
+    }
+  },
+  "Mr. “Ant” Tenna": {
+    "checkpoint": "mr_ant_tenna.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 250\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Mr. “Ant” Tenna": 0
+    }
+  },
+  "My Little Pony": {
+    "checkpoint": "my_little_pony.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \".hecko\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 31\ndataset_length: \"3-4h (est.)\"\nlicense: \"Unlicense\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Apple bloom": 0,
+      "Applejack": 1,
+      "Fluttershy": 2,
+      "Pinkie Pie": 3,
+      "Rainbow Dash": 4,
+      "Rarity": 5,
+      "Spike": 6,
+      "Twilight Sparkle": 7
+    }
+  },
+  "Panty And Stocking": {
+    "checkpoint": "panty_and_stocking.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 200\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "BriefRock": 0,
+      "Garterbelt": 1,
+      "Kneesocks Daemon": 2,
+      "Panty Anarchy": 3,
+      "Polyester": 4,
+      "Polyurethane": 5,
+      "Scanty Daemon": 6,
+      "Stocking Anarchy": 7
+    }
+  },
+  "Pauline (Donkey Kong Bananza)": {
+    "checkpoint": "pauline_donkey_kong_bananza.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 100\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Pauline": 0
+    }
+  },
+  "Pinky and the Brain": {
+    "checkpoint": "pinky_and_the_brain.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 120\ndataset_length: \"2h (est.)\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Pinky": 0,
+      "Brain": 1
+    }
+  },
+  "SheZow": {
+    "checkpoint": "shezow.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "speaker_ids": {
+      "AgnesMonroe": 0,
+      "BabyScarington": 1,
+      "BoxterHamdon": 2,
+      "BrianSmirk": 3,
+      "Brouhaha": 4,
+      "CandyRapper": 5,
+      "CaptainXL": 6,
+      "ColdFinger": 7,
+      "DrooshaHamdon": 8,
+      "Dudley": 9,
+      "GalHamdonDudePow": 10,
+      "GuyHamdonSheZow": 11,
+      "KelliHamdon": 12,
+      "KellyHamdon": 13,
+      "MaizyKepler": 14,
+      "MazKepler": 15,
+      "Mocktopus": 16,
+      "Null": 17,
+      "OfficerWackerman": 18,
+      "SenorYo|Yo": 19,
+      "SheZap": 20,
+      "Sheila": 21,
+      "Tara": 22,
+      "Tattoozala": 23,
+      "UmaThermal": 24,
+      "Void": 25,
+      "Wanda": 26,
+      "Wishington": 27
+    }
+  },
+  "SpongeBob": {
+    "checkpoint": "spongebob.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"DodoTheGamer\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: N/A\ndataset_length: \"2h (est.)\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "French Narrator": 0,
+      "Mr. Krabs": 1,
+      "Mrs. Puff": 2,
+      "Patrick": 3,
+      "Plankton": 4,
+      "Sandy": 5,
+      "SpongeBob": 6,
+      "Squidward": 7
+    }
+  },
+  "SpongeBob (Single Speaker TT2 model)": {
+    "checkpoint": "spongebob_single_speaker_tt2_model.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"Gosmokeless28\"\nmos: \"N/A\"\nlearning_rate: 5e-4\nepochs: 250\nbatch_size: 32\npretrain: LJspeech\ndataset_length: \"1h 44 mins\"\ndataset: Speaking of AI (Transcript by Tari Tennyson)\nlicense: \"No license\"\nValidation_Loss: 0.2\narchitecture: \"tacotron2\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Doesn't support multispeaker": 0
+    }
+  },
+  "Steve (A minecraft Movie)": {
+    "checkpoint": "steve_a_minecraft_movie.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 120\ndataset_length: \"N/A\"\nlicense: \"No License\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Steve": 0
+    }
+  },
+  "Talking Flower": {
+    "checkpoint": "talking_flower.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 150\ndataset_length: \"N/A\"\nlicense: \"No License\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Talking Flower": 0
+    }
+  },
+  "Team Fortress 2": {
+    "checkpoint": "team_fortress_2.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"DodoTheGamer\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 52\ndataset_length: \"1h\"\nlicense: \"Unlicense\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "Demoman": 0,
+      "Engineer": 1,
+      "Heavy": 2,
+      "Medic": 3,
+      "Merasmus": 4,
+      "Pauling": 5,
+      "Pyro": 6,
+      "Scout": 7,
+      "Sniper": 8,
+      "Spy": 9
+    }
+  },
+  "Tell and Talk": {
+    "checkpoint": "tell_and_talk.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"DodoTheGamer\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 200\ndataset_length: \"1h\"\nlicense: \"Unlicense\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan",
+    "speaker_ids": {
+      "Tell and Talk": 0
+    }
+  },
+  "Wario (WarioWare Gold)": {
+    "checkpoint": "wario_warioware_gold.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"ShiverThermal\"\nmos: \"N/A\"\nlearning_rate: 1e-4\nepochs: 225\ndataset_length: \"N/A\"\nlicense: \"No license\"\narchitecture: \"Tacotron Pipeline\"\nvocoder: \"hifi-gan\"",
+    "speaker_ids": {
+      "BriefRock": 0,
+      "Garterbelt": 1,
+      "Kneesocks Daemon": 2,
+      "Panty Anarchy": 3,
+      "Polyester": 4,
+      "Polyurethane": 5,
+      "Scanty Daemon": 6,
+      "Stocking Anarchy": 7
+    }
+  },
+  "Inosuke": {
+    "checkpoint": "inosuke.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "metadata": "creator: \"Anon\"\nmos: 4.1\nlearning_rate: ???\nepochs: ???\ndataset_length: \"2h (est.)\"\nlicense: \"No license\"\narchitecture: \"RVC\"\nvocoder: \"hifi-gan\""
+  },
+  "Beavis And Butt": {
+    "checkpoint": "beavis_and_butt.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "speaker_ids": {
+      "Beavis": 0,
+      "Butt-head": 1
+    }
+  },
+  "Ranma Season 1": {
+    "checkpoint": "ranma_season_1.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "speaker_ids": {
+      "Akane Tendo": 0,
+      "Mousse": 1,
+      "Ranma Saotome (female)": 2,
+      "Ranma Saotome (male)": 3,
+      "Ryoga Hibiki": 4,
+      "Shampoo": 5
+    }
+  },
+  "Ruby Gloom": {
+    "checkpoint": "ruby_gloom.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "speaker_ids": {
+      "BooBoo": 0,
+      "Frank": 1,
+      "Iris": 2,
+      "Len": 3,
+      "Misery": 4,
+      "Poe": 5,
+      "RubyGloom": 6,
+      "ScaredyBat": 7,
+      "SkullBoy": 8
+    }
+  },
+  "Whittany and Brittany Biskit (Littlest Pet Shop 2012)": {
+    "checkpoint": "whittany_and_brittany_biskit_littlest_pet_shop_2012.pt",
+    "vocoder": "universal_hifigan.pt",
+    "architecture": "Tacotron2",
+    "speaker_ids": {
+      "Brittany": 0,
+      "Whittany": 1
+    }
+  }
+}

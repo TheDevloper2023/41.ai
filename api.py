@@ -7,12 +7,51 @@ from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import BackgroundTasks
 from worker import synthesize_tts
-from tts.registry import list_models, list_speakers
+from tts.registry import list_models, list_speakers, last_used, CACHE_DIR, _loaded_models as model_cache
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime, timedelta
+import asyncio
+import shutil
+from pathlib import Path
+
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+temp_dir = tempfile.gettempdir()
 
+CACHE_TIMEOUT_MIN = 15    
+CACHE_DIR = "/tmp/hf_cache"
 
+# So uhh, on HF; you get a few gigs for free. and if I download all models it will fill up
+# To prevend this we download each time, wait a period and unused models in that period will be deleted from the space kinda
+
+# I was lazy so this was written by AI, I just want to return the site already.
+async def cleanup_idle_models():
+    """Runs every few minutes — deletes old models"""
+    while True:
+        now = datetime.utcnow()
+        to_delete = []
+
+        for name, ts in last_used.items():
+            if now - ts > timedelta(minutes=CACHE_TIMEOUT_MIN):
+                to_delete.append(name)
+
+        for name in to_delete:
+            if name in model_cache:
+                del model_cache[name]
+            # Also delete from disk if you want (optional but recommended)
+            model_folder = Path(CACHE_DIR) / name
+            if model_folder.exists():
+                shutil.rmtree(model_folder, ignore_errors=True)
+            del last_used[name]
+            print(f"Expired and deleted model: {name}")
+
+        await asyncio.sleep(300)  # check every 5 minutes
+
+        
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(cleanup_idle_models())
 
 app.add_middleware(
     CORSMiddleware,
@@ -52,8 +91,8 @@ async def tts_request(
 
     ref_audio_path = None
     if ref_audio:
-        os.makedirs("uploaded_refs", exist_ok=True)
-        ref_audio_path = os.path.join("uploaded_refs", f"{job_id}_{ref_audio.filename}")
+        os.makedirs(temp_dir = tempfile.gettempdir(), exist_ok=True)
+        ref_audio_path = os.path.join(temp_dir, f"{job_id}_{ref_audio.filename}")
         with open(ref_audio_path, "wb") as f:
             f.write(await ref_audio.read())
 
